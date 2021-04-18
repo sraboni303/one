@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Modules\Image\Http\Controllers\ImageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +15,7 @@
 */
 
 Route::prefix('image')->group(function() {
-    Route::get('/', 'ImageController@index');
+    Route::get('/', [ImageController::class, 'index'])->name('image.index');
+    Route::get('/create', [ImageController::class, 'create'])->name('image.create');
+    Route::post('/store', [ImageController::class, 'store'])->name('image.store');
 });
