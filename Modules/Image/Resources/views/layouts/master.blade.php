@@ -16,13 +16,6 @@
     <body>
         @yield('content')
 
-        {{-- Laravel Mix - JS File --}}
-        {{-- <script src="{{ mix('js/image.js') }}"></script> --}}
-
-        <script src="{{ asset('js/jquery.min.js') }}"></script>
-	    <script src="{{ asset('js/popper.min.js') }}"></script>
-        <script src="{{ asset('js/dropzone.min.js') }}"></script>
         @yield('script')
-        <script src="{{ asset('js/custom.js') }}"></script>
     </body>
 </html>

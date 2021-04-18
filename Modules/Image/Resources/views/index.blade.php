@@ -7,16 +7,16 @@
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Title</th>
             <th scope="col">Images</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-          </tr>
+          @foreach ($images as $image)
+            <tr>
+                <th scope="row">{{ $loop->index+1 }}</th>
+                <td><img src="{{ asset($image->image) }}" height="50px" width="50px" alt=""></td>
+            </tr>
+          @endforeach
         </tbody>
     </table>
 </div>

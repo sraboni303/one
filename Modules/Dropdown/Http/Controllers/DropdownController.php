@@ -1,14 +1,12 @@
 <?php
 
-namespace Modules\Image\Http\Controllers;
+namespace Modules\Dropdown\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Storage;
-use Modules\Image\Entities\Gallery;
 
-class ImageController extends Controller
+class DropdownController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,7 @@ class ImageController extends Controller
      */
     public function index()
     {
-        $images = Gallery::all();
-        return view('image::index', compact('images'));
+        return view('dropdown::index');
     }
 
     /**
@@ -26,7 +23,7 @@ class ImageController extends Controller
      */
     public function create()
     {
-        return view('image::create');
+        return view('dropdown::create');
     }
 
     /**
@@ -36,25 +33,7 @@ class ImageController extends Controller
      */
     public function store(Request $request)
     {
-
-        foreach ($request->file as $image) {
-            if ($image) {
-
-                $fileName = time().'_'. uniqid() .'.'. $image->getClientOriginalExtension();
-                Storage::putFileAs("public/gallery", $image, $fileName);
-
-                $url = "storage/gallery/" . $fileName;
-
-                Gallery::create([
-                    'image' => $url,
-                ]);
-            }
-        }
-
-
-        // Gallery::create([
-        //     ''
-        // ]);
+        //
     }
 
     /**
@@ -64,7 +43,7 @@ class ImageController extends Controller
      */
     public function show($id)
     {
-        return view('image::show');
+        return view('dropdown::show');
     }
 
     /**
@@ -74,7 +53,7 @@ class ImageController extends Controller
      */
     public function edit($id)
     {
-        return view('image::edit');
+        return view('dropdown::edit');
     }
 
     /**

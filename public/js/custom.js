@@ -2,9 +2,11 @@
     $(document).ready(function(){
 
         // Form Submit
-        $('#submit').click(function(){
-            $('#my_dropzone').submit();
+        $('#submit-all').click(function(){
+            $('#dropzoneForm').submit();
         });
+
+
 
     });
 })(jQuery)
